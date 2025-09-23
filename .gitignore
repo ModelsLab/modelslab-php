@@ -1,0 +1,57 @@
+# Dependencies
+/vendor/
+composer.phar
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.staging
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Test files and coverage
+/tests/
+phpunit.xml
+.phpunit.result.cache
+coverage/
+.nyc_output/
+
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Cache files
+cache/
+*.cache
+
+# API keys and secrets (extra protection)
+*api*key*
+*secret*
+*password*
+*token*
+*credential*
+
+# Build artifacts
+build/
+dist/

@@ -1,0 +1,23 @@
+{
+    "name": "modelslab/php-sdk",
+    "description": "PHP SDK for ModelsLab API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ModelsLab Team",
+            "email": "support@modelslab.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ModelsLab\\": "src/ModelsLab/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
