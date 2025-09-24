@@ -1,5 +1,5 @@
 {
-    "name": "modelslab/php-sdk",
+    "name": "modelslab/php",
     "description": "PHP SDK for ModelsLab API - AI-powered image, video, audio, and 3D generation services",
     "type": "library",
     "license": "MIT",
