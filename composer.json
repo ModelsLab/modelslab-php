@@ -29,7 +29,14 @@
             "ModelsLab\\": "src/ModelsLab/"
         },
         "files": [
-            "src/ModelsLab/Schemas/Audio.php"
+            "src/ModelsLab/Schemas/Audio.php",
+            "src/ModelsLab/Schemas/Deepfake.php",
+            "src/ModelsLab/Schemas/Community.php",
+            "src/ModelsLab/Schemas/ImageEditing.php",
+            "src/ModelsLab/Schemas/Interior.php",
+            "src/ModelsLab/Schemas/Realtime.php",
+            "src/ModelsLab/Schemas/ThreeD.php",
+            "src/ModelsLab/Schemas/Video.php"
         ]
     },
     "autoload-dev": {
