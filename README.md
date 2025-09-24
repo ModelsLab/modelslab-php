@@ -7,7 +7,7 @@ A PHP SDK for the ModelsLab API, providing easy access to AI-powered image, vide
 Install the SDK using Composer:
 
 ```bash
-composer require modelslab/php-sdk
+composer require modelslab/php
 ```
 
 Or add it to your `composer.json`:
@@ -15,34 +15,93 @@ Or add it to your `composer.json`:
 ```json
 {
     "require": {
-        "modelslab/php-sdk": "^1.0.0"
+        "modelslab/php": "^1.0.2"
     }
 }
 ```
 
 ## Quick Start
 
+### Text to Speech
 ```php
 <?php
-
 require_once 'vendor/autoload.php';
 
 use ModelsLab\ModelsLab;
-use ModelsLab\Schemas\Audio as AudioSchemas;
+use ModelsLab\Schemas\Text2Speech;
 
-// Initialize the SDK
-$apiKey = getenv('MODELSLAB_API_KEY') ?: 'your-api-key-here';
+$apiKey = 'your-api-key';
 $modelslab = new ModelsLab($apiKey);
 
-// Generate text to speech
-$textToSpeechSchema = new AudioSchemas\Text2Speech([
-    'prompt' => 'Hello, this is a test of the ModelsLab PHP SDK!',
+$tts = new Text2Speech([
+    'prompt' => 'Hello from ModelsLab!',
     'voice_id' => 'madison',
-    'language' => 'english',
-    'output_format' => 'wav'
+    'language' => 'english'
 ]);
 
-$response = $modelslab->audio()->textToSpeech($textToSpeechSchema);
+$response = $modelslab->audio()->textToSpeech($tts);
+echo json_encode($response, JSON_PRETTY_PRINT);
+```
+
+### Text to Image
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use ModelsLab\ModelsLab;
+use ModelsLab\Schemas\RealtimeText2ImageSchema;
+
+$apiKey = 'your-api-key';
+$modelslab = new ModelsLab($apiKey);
+
+$image = new RealtimeText2ImageSchema([
+    'prompt' => 'A beautiful landscape',
+    'width' => 512,
+    'height' => 512
+]);
+
+$response = $modelslab->realtime()->textToImage($image);
+echo json_encode($response, JSON_PRETTY_PRINT);
+```
+
+### Text to Video
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use ModelsLab\ModelsLab;
+use ModelsLab\Schemas\Text2Video;
+
+$apiKey = 'your-api-key';
+$modelslab = new ModelsLab($apiKey);
+
+$video = new Text2Video([
+    'prompt' => 'A cat playing with a ball',
+    'model_id' => 'svd'
+]);
+
+$response = $modelslab->video()->textToVideo($video);
+echo json_encode($response, JSON_PRETTY_PRINT);
+```
+
+### Deepfake Video Swap
+```php
+<?php
+require_once 'vendor/autoload.php';
+
+use ModelsLab\ModelsLab;
+use ModelsLab\Schemas\DeepfakeSchema;
+
+$apiKey = 'your-api-key';
+$modelslab = new ModelsLab($apiKey);
+
+$deepfake = new DeepfakeSchema([
+    'init_image' => 'https://example.com/face.jpg',
+    'init_video' => 'https://example.com/video.mp4',
+    'output_format' => 'mp4'
+]);
+
+$response = $modelslab->deepfake()->singleVideoSwap($deepfake);
 echo json_encode($response, JSON_PRETTY_PRINT);
 ```
 
