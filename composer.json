@@ -27,7 +27,10 @@
     "autoload": {
         "psr-4": {
             "ModelsLab\\": "src/ModelsLab/"
-        }
+        },
+        "files": [
+            "src/ModelsLab/Schemas/Audio.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
