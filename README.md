@@ -198,4 +198,4 @@ MIT License
 
 ## Support
 
-For support and questions, please contact [support@modelslab.com](mailto:support@modelslab.com) or visit our [documentation](https://modelslab.com/docs).
+For support and questions, please contact [support@modelslab.com](mailto:support@modelslab.com) or visit our [documentation](https://docs.modelslab.com).
