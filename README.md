@@ -37,8 +37,8 @@ $modelslab = new ModelsLab($apiKey);
 // Generate text to speech
 $textToSpeechSchema = new AudioSchemas\Text2Speech([
     'prompt' => 'Hello, this is a test of the ModelsLab PHP SDK!',
-    'voice_id' => 'en-US-Standard-A',
-    'language' => 'en',
+    'voice_id' => 'madison',
+    'language' => 'english',
     'output_format' => 'wav'
 ]);
 
