@@ -4,6 +4,9 @@ namespace ModelsLab\Core\Apis;
 
 use ModelsLab\Core\Client;
 use ModelsLab\Schemas\VideoSchema;
+use ModelsLab\Schemas\Text2Video;
+use ModelsLab\Schemas\Image2Video;
+use ModelsLab\Schemas\Text2VideoUltra;
 
 /**
  * Video API for ModelsLab
@@ -24,9 +27,29 @@ class Video extends BaseAPI
     /**
      * Generate video from text
      */
-    public function textToVideo(VideoSchema $schema): array
+    public function textToVideo(Text2Video $schema): array
     {
         $baseEndpoint = $this->baseUrl . 'text2video';
+        $data = $schema->toArray();
+        return $this->client->post($baseEndpoint, $data);
+    }
+    
+    /**
+     * Generate video from image
+     */
+    public function imageToVideo(Image2Video $schema): array
+    {
+        $baseEndpoint = $this->baseUrl . 'img2video';
+        $data = $schema->toArray();
+        return $this->client->post($baseEndpoint, $data);
+    }
+    
+    /**
+     * Generate video from text (Ultra)
+     */
+    public function textToVideoUltra(Text2VideoUltra $schema): array
+    {
+        $baseEndpoint = $this->baseUrl . 'text2video_ultra';
         $data = $schema->toArray();
         return $this->client->post($baseEndpoint, $data);
     }
