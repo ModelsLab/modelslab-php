@@ -1,25 +1,41 @@
 {
     "name": "modelslab/php-sdk",
-    "description": "PHP SDK for ModelsLab API",
+    "description": "PHP SDK for ModelsLab API - AI-powered image, video, audio, and 3D generation services",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
-    "keywords": ["modelslab", "ai", "sdk", "api", "php"],
+    "keywords": ["modelslab", "ai", "sdk", "api", "php", "machine-learning", "text-to-speech", "image-generation", "video-generation", "3d-generation"],
     "homepage": "https://modelslab.com",
+    "support": {
+        "email": "support@modelslab.com",
+        "docs": "https://modelslab.com/docs",
+        "source": "https://github.com/modelslab/php-sdk"
+    },
     "authors": [
         {
             "name": "ModelsLab Team",
-            "email": "support@modelslab.com"
+            "email": "support@modelslab.com",
+            "homepage": "https://modelslab.com"
         }
     ],
     "require": {
         "php": ">=7.4",
         "guzzlehttp/guzzle": "^7.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
     "autoload": {
         "psr-4": {
             "ModelsLab\\": "src/ModelsLab/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ModelsLab\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
     },
     "minimum-stability": "stable",
     "prefer-stable": true
