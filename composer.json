@@ -3,6 +3,7 @@
     "description": "PHP SDK for ModelsLab API - AI-powered image, video, audio, and 3D generation services",
     "type": "library",
     "license": "MIT",
+    "version": "1.2.0",
     "keywords": ["modelslab", "ai", "sdk", "api", "php", "machine-learning", "text-to-speech", "image-generation", "video-generation", "3d-generation"],
     "homepage": "https://modelslab.com",
     "support": {
@@ -15,6 +16,10 @@
             "name": "ModelsLab Team",
             "email": "support@modelslab.com",
             "homepage": "https://modelslab.com"
+        },
+        {
+            "name": "Anurag Kanade",
+            "email": "anurag@modelslab.com"
         }
     ],
     "require": {
