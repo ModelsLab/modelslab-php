@@ -120,11 +120,11 @@ class Text2VideoUltra extends BaseSchema
     protected ?bool $portrait;
     protected ?int $sampleShift;
     protected ?bool $temp;
-    
+
     public function __construct(array $data = [])
     {
         parent::__construct($data);
-        
+
         $this->prompt = $data['prompt'] ?? '';
         $this->negativePrompt = $data['negative_prompt'] ?? null;
         $this->resolution = $data['resolution'] ?? 320;
@@ -136,5 +136,31 @@ class Text2VideoUltra extends BaseSchema
         $this->portrait = $data['portrait'] ?? false;
         $this->sampleShift = $data['sample_shift'] ?? 3;
         $this->temp = $data['temp'] ?? false;
+    }
+}
+
+/**
+ * Watermark Remover schema
+ */
+class WatermarkRemoverSchema extends BaseSchema
+{
+    protected $init_video;
+
+    public function __construct(array $data = [])
+    {
+        parent::__construct($data);
+
+        $this->init_video = $data['init_video'] ?? null;
+    }
+
+    public function getInitVideo()
+    {
+        return $this->init_video;
+    }
+
+    public function setInitVideo($init_video): self
+    {
+        $this->init_video = $init_video;
+        return $this;
     }
 }

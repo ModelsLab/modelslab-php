@@ -133,7 +133,22 @@ Generate videos from text prompts.
 
 ```php
 $video = $modelslab->video();
+
+// Text to Video
 $response = $video->textToVideo($videoSchema);
+
+// Image to Video
+$response = $video->imageToVideo($imageToVideoSchema);
+
+// Text to Video Ultra
+$response = $video->textToVideoUltra($text2VideoUltraSchema);
+
+// Watermark Remover - Remove watermarks from videos
+$watermarkRemover = new WatermarkRemoverSchema([
+    'key' => $apiKey,
+    'init_video' => 'https://example.com/video.mp4'
+]);
+$response = $video->watermarkRemover($watermarkRemover);
 ```
 
 ### 3D API
@@ -151,7 +166,40 @@ Generate interior design images.
 
 ```php
 $interior = $modelslab->interior();
-$response = $interior->interior($interiorSchema);
+
+// Interior Design
+$response = $interior->makeInterior($interiorSchema);
+
+// Room Decorator
+$response = $interior->roomDecorator($roomDecoratorSchema);
+
+// Floor Planning
+$response = $interior->floorPlanning($floorPlanningSchema);
+
+// Sketch Rendering
+$response = $interior->sketchRendering($sketchRenderingSchema);
+
+// Object Removal - Remove objects from room images
+$objectRemoval = new ObjectRemovalSchema([
+    'key' => $apiKey,
+    'init_image' => 'https://example.com/room.jpg',
+    'object_name' => 'chair',
+    'base64' => false
+]);
+$response = $interior->objectRemoval($objectRemoval);
+
+// Interior Mixer - Add objects from one image into another room
+$interiorMixer = new InteriorMixerSchema([
+    'key' => $apiKey,
+    'init_image' => 'https://example.com/room.jpg',
+    'object_image' => 'https://example.com/furniture.jpg',
+    'prompt' => 'Add the furniture to the living room',
+    'width' => 1280,
+    'height' => 1280,
+    'num_inference_steps' => 8,
+    'base64' => false
+]);
+$response = $interior->interiorMixer($interiorMixer);
 ```
 
 ### Realtime API
@@ -187,7 +235,34 @@ Edit and manipulate images.
 
 ```php
 $imageEditing = $modelslab->imageEditing();
+
+// Qwen Edit - Edit images using Qwen model
+$qwenEdit = new QwenEditSchema([
+    'key' => $apiKey,
+    'prompt' => 'Add a sunset in the background',
+    'init_image' => ['https://example.com/image1.jpg', 'https://example.com/image2.jpg'],
+    'base64' => false
+]);
+$response = $imageEditing->qwenEdit($qwenEdit);
+
+// Caption - Generate captions for images
+$caption = new CaptionSchema([
+    'key' => $apiKey,
+    'init_image' => 'https://example.com/image.jpg',
+    'length' => 'normal', // 'short', 'normal', or 'long'
+    'base64' => false
+]);
+$response = $imageEditing->caption($caption);
+
+// Other image editing methods
 $response = $imageEditing->backgroundRemover($backgroundRemoverSchema);
+$response = $imageEditing->superResolution($superResolutionSchema);
+$response = $imageEditing->outpainting($outpaintingSchema);
+$response = $imageEditing->inpainting($inpaintingSchema);
+$response = $imageEditing->objectRemover($objectRemoverSchema);
+$response = $imageEditing->facegen($facegenSchema);
+$response = $imageEditing->headshot($headshotSchema);
+$response = $imageEditing->fashion($fashionSchema);
 ```
 
 ## Configuration

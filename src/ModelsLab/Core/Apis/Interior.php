@@ -4,6 +4,8 @@ namespace ModelsLab\Core\Apis;
 
 use ModelsLab\Core\Client;
 use ModelsLab\Schemas\InteriorSchema;
+use ModelsLab\Schemas\ObjectRemovalSchema;
+use ModelsLab\Schemas\InteriorMixerSchema;
 
 /**
  * Interior API for ModelsLab
@@ -57,6 +59,26 @@ class Interior extends BaseAPI
     public function sketchRendering(InteriorSchema $schema): array
     {
         $baseEndpoint = $this->baseUrl . 'sketch_rendering';
+        $data = $schema->toArray();
+        return $this->client->post($baseEndpoint, $data);
+    }
+
+    /**
+     * Remove objects from room images
+     */
+    public function objectRemoval(ObjectRemovalSchema $schema): array
+    {
+        $baseEndpoint = $this->baseUrl . 'object_removal';
+        $data = $schema->toArray();
+        return $this->client->post($baseEndpoint, $data);
+    }
+
+    /**
+     * Add objects from one image into another room
+     */
+    public function interiorMixer(InteriorMixerSchema $schema): array
+    {
+        $baseEndpoint = $this->baseUrl . 'interior_mixer';
         $data = $schema->toArray();
         return $this->client->post($baseEndpoint, $data);
     }

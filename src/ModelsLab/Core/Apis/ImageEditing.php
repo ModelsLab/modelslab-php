@@ -4,6 +4,8 @@ namespace ModelsLab\Core\Apis;
 
 use ModelsLab\Core\Client;
 use ModelsLab\Schemas\BackgroundRemoverSchema;
+use ModelsLab\Schemas\QwenEditSchema;
+use ModelsLab\Schemas\CaptionSchema;
 
 /**
  * Image Editing API for ModelsLab
@@ -97,6 +99,26 @@ class ImageEditing extends BaseAPI
     public function fashion(BackgroundRemoverSchema $schema): array
     {
         $baseEndpoint = $this->baseUrl . 'fashion';
+        $data = $schema->toArray();
+        return $this->client->post($baseEndpoint, $data);
+    }
+
+    /**
+     * Qwen Edit - Edit images using Qwen model
+     */
+    public function qwenEdit(QwenEditSchema $schema): array
+    {
+        $baseEndpoint = $this->baseUrl . 'qwen_edit';
+        $data = $schema->toArray();
+        return $this->client->post($baseEndpoint, $data);
+    }
+
+    /**
+     * Caption - Generate captions for images
+     */
+    public function caption(CaptionSchema $schema): array
+    {
+        $baseEndpoint = $this->baseUrl . 'caption';
         $data = $schema->toArray();
         return $this->client->post($baseEndpoint, $data);
     }

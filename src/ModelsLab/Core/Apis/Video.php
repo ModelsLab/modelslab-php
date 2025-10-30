@@ -7,6 +7,7 @@ use ModelsLab\Schemas\VideoSchema;
 use ModelsLab\Schemas\Text2Video;
 use ModelsLab\Schemas\Image2Video;
 use ModelsLab\Schemas\Text2VideoUltra;
+use ModelsLab\Schemas\WatermarkRemoverSchema;
 
 /**
  * Video API for ModelsLab
@@ -50,6 +51,16 @@ class Video extends BaseAPI
     public function textToVideoUltra(Text2VideoUltra $schema): array
     {
         $baseEndpoint = $this->baseUrl . 'text2video_ultra';
+        $data = $schema->toArray();
+        return $this->client->post($baseEndpoint, $data);
+    }
+
+    /**
+     * Remove watermarks from videos
+     */
+    public function watermarkRemover(WatermarkRemoverSchema $schema): array
+    {
+        $baseEndpoint = $this->baseUrl . 'watermark_remover';
         $data = $schema->toArray();
         return $this->client->post($baseEndpoint, $data);
     }
